@@ -40,3 +40,26 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Editor-style code blocks */
+.code-block {
+  background: #0b0f14;
+  color: #e6eef6;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow: auto;
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size: 0.95rem;
+  margin: 0.75rem 0;
+}
+.code-block code {
+  background: transparent;
+  color: inherit;
+  white-space: pre;
+}
+
+/* Make highlight.js default dark theme tokens slightly brighter */
+.hljs {
+  background: transparent;
+  color: #e6eef6;
+}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function CardViewer({ cards }) {
   const [index, setIndex] = useState(0);
@@ -21,9 +21,47 @@ export default function CardViewer({ cards }) {
 
   if (!card) return <p>カードがありません</p>;
 
+  // simple fenced-code parser: split by ```lang\ncode\n```
+  function renderQuestion(q) {
+    if (!q.includes("```") ) return <pre className="question">{q}</pre>;
+
+    const parts = q.split(/```/g);
+    // parts: [text, lang\ncode, text, lang\ncode, ...]
+    return (
+      <div className="question">
+        {parts.map((part, i) => {
+          if (i % 2 === 0) return <div key={i}>{part}</div>;
+          // code part: maybe starts with language
+          const firstLineEnd = part.indexOf('\n');
+          let lang = '';
+          let code = part;
+          if (firstLineEnd !== -1) {
+            const firstLine = part.slice(0, firstLineEnd).trim();
+            if (/^[a-zA-Z0-9]+$/.test(firstLine)) {
+              lang = firstLine;
+              code = part.slice(firstLineEnd + 1);
+            }
+          }
+          const className = `language-${lang || 'plaintext'}`;
+          return (
+            <pre className="code-block" key={i}>
+              <code className={className}>{code}</code>
+            </pre>
+          );
+        })}
+      </div>
+    );
+  }
+
+  useEffect(() => {
+    if (window.hljs && window.hljs.highlightAll) {
+      window.hljs.highlightAll();
+    }
+  }, [card, result]);
+
   return (
     <div className="card-viewer">
-      <pre className="question">{card.question}</pre>
+      {renderQuestion(card.question)}
 
       <button onClick={() => check("A")}>A: {card.choice1}</button>
       <button onClick={() => check("B")}>B: {card.choice2}</button>
