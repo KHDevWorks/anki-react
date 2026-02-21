@@ -1,18 +1,19 @@
+
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このテンプレートは、HMR（ホットモジュールリプレースメント）や基本的な ESLint ルールを含む、Vite 上で React を動作させるための最小限のセットアップを提供します。
 
-Currently, two official plugins are available:
+現在、公式のプラグインが 2 つ利用可能です:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) は Fast Refresh に [Babel](https://babeljs.io/)（または [rolldown-vite](https://vite.dev/guide/rolldown) 使用時は [oxc](https://oxc.rs)）を使用します。
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) は Fast Refresh に [SWC](https://swc.rs/) を使用します。
 
-## React Compiler
+## React コンパイラ
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+このテンプレートでは React コンパイラが有効になっています。詳細は [このドキュメント](https://react.dev/learn/react-compiler) を参照してください。
 
-Note: This will impact Vite dev & build performances.
+注: これにより Vite の開発およびビルドのパフォーマンスに影響が出る場合があります。
 
-## Expanding the ESLint configuration
+## ESLint 設定の拡張
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+本番アプリケーションを開発する場合は、型情報を利用した ESLint ルールを有効にした TypeScript の使用を推奨します。TypeScript と `typescript-eslint` をプロジェクトに統合する方法については、[TS テンプレート](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) を参照してください。
