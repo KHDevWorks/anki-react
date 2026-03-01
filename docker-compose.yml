@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      # ローカルのファイルをコンテナに同期 (ホットリロード用)
+      - .:/app
+      # コンテナ内の node_modules をローカルで上書きしないようにする
+      - /app/node_modules
+    environment:
+      # Windows環境でのホットリロードが効かない場合の対策
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
