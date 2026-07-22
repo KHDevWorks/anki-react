@@ -1,1 +1,7 @@
+[submodule "anki-react"]
+	path = anki-react
+	url = https://github.com/KHDevWorks/anki-react.git
+[submodule "anki-react-app.js"]
+	path = anki-react-app.js
+	url = https://github.com/KHDevWorks/anki-react.git
 
